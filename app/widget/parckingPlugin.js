@@ -42,20 +42,20 @@ function __comParckingPlugin(jQuery, jSelector) {
         });
       }
 
-      function template_me(html, dictionary) {
-        
+      function template_me(html, data) {
+
         var old_var = _.templateSettings.variable;
         
         _.templateSettings.variable = "com_parking";
         var template = _.template(html);
-        _self.html(template(dictionary));
+        _self.html(template(data));
 
         _.templateSettings.variable = old_var;
       }
 
       function praseData(dataModel, html) {
-
-        template_me(html, dataModel.dictionary);
+/*<img src="<%= com_parking.vendor.map %>"></img> */
+        template_me(html, dataModel);
       }
 
       function initPlugin() {

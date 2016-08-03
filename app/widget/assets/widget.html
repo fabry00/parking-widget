@@ -1,3 +1,15 @@
 <div class="com_parking_widget">
-    <span><%= com_parking.title %></span>
+    <span><%= com_parking.vendor.name %></span>
+    <div class="com_parking_widget_header">
+        <div class="com_parking_widget_header_title">
+            <%= com_parking.dictionary.bookYourParking %> 
+            <%= com_parking.vendor.departureAirport %>
+        </div>        
+    </div>
+    <div class="com_parking_widget_container">
+        <div class="com_parking_widget_map">
+            <div class="com_parking_widget_loader"></div>            
+        </div>
+        <div class="com_parking_widget_features">FEAUTURES</div>
+    </div>
 </div>

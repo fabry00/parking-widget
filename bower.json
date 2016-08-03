@@ -5,6 +5,7 @@
   "homepage": "",
   "license": "",
   "private": true,
-  "dependencies": {    
+  "dependencies": {
+    "jquery.imgpreload": "1.6.2"    
   }
 }

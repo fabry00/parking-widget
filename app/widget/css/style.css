@@ -3,3 +3,18 @@
     font-size: 14px;
     color: #ABABAB;
 }
+
+.com_parking_widget span:first-child {
+    font-size: 18px;
+    color: brown;
+}
+
+.com_parking_widget_loader {
+    position: relative;
+	left: 0px;
+	top: 0px;
+	width: 100px;
+	height: 100px;
+	
+	background: url(http://localhost:8080/widget/assets/preloader.gif) center no-repeat #fff;
+}
