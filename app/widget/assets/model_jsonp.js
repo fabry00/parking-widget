@@ -16,7 +16,7 @@ callback({
          "indoor":false,
          "insurance":false,
          "price":"13.56 EUR",
-         "top":220,
+         "top":180,
          "left":80
       },
       {
@@ -32,8 +32,8 @@ callback({
          "indoor":true,
          "insurance":true,
          "price":"23.56 EUR",
-         "top":90,
-         "left":200
+         "top":30,
+         "left":170
       },
       {
          "id":700,

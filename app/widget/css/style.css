@@ -1,16 +1,80 @@
-@media screen and (min-width: 40.5em) {
-  .com_parking_widget_map_container {
-    width: 50%;
-    float: left;
-  }
+/* Mobile portrait mode*/
 
-  .com_parking_widget_pakring_map {
-    width: 50%;
-    float: left;
-  }
+@media only screen and (max-width: 320px) {
+    .com_parking_widget_map_container {
+        position: relative;
+        width: 200px;
+        height: 210px;
+    }
+    .com_parking_widget_pakring_map {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    .com_parking_widget_pakring_map img {
+        width: 200px;
+        height: auto;
+    }
+    .com_parking_widget_block_icon img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+/* Mobile landscape mode*/
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .com_parking_widget_map_container {
+        position: relative;
+        width: 250px;
+        height: 263px;
+    }
+    .com_parking_widget_pakring_map {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    .com_parking_widget_pakring_map img {
+        width: 250px;
+        height: auto;
+    }
+}
+
+
+/* Tablet mode*/
+
+@media only screen and (min-width: 768px) and (max-width: 1024) {
+    .com_parking_widget_map_container {
+        position: relative;
+        width: 370px;
+        height: 390px;
+    }
+    .com_parking_widget_pakring_map {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+}
+
+
+/* Desktop mode*/
+
+@media only screen and (min-width: 1224px) {
+    .com_parking_widget_map_container {
+        position: relative;
+        width: 370px;
+        height: 390px;
+    }
+    .com_parking_widget_pakring_map {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
 }
 
 .com_parking_widget {
+    position: relative;
     font-family: "Times New Roman", Times, serif;
     font-size: 14px;
     color: #ABABAB;
@@ -20,11 +84,10 @@
 
 .com_parking_widget_loader {
     left: 10px;
-	top: 10px;
-	width: 100px;
-	height: 100px;
-	
-	background: url(http://localhost:8080/widget/assets/preloader.gif) center no-repeat #fff;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+    background: url(http://localhost:8080/widget/assets/preloader.gif) center no-repeat #fff;
 }
 
 .com_parking_widget_header {
@@ -34,11 +97,11 @@
 }
 
 .com_parking_widget .com_parking_widget_box {
-   float:left;
+    float: left;
 }
 
 .com_parking_widget .com_parking_widget_box_right {
-   float:right;
+    float: right;
 }
 
 .com_parking_widget_header_show_details span:first-child {
@@ -47,18 +110,16 @@
     color: brown;
 }
 
-
-.com_parking_widget_footer .com_parking_widget_showdetails{
+.com_parking_widget_footer .com_parking_widget_showdetails {
     text-transform: capitalize;
-    text-decoration:none; 
+    text-decoration: none;
     color: red;
 }
- 
- .com_parking_widget_container {
-     position: relative; 
-     display:none;
-      
- }
+
+.com_parking_widget_container {
+    position: relative;
+    display: none;
+}
 
 .com_parking_widget_container .com_parking_widget_features {
     margin-left: 10px;
@@ -68,50 +129,32 @@
     list-style-image: url('http://localhost:8080/widget/assets/icon-check.png');
 }
 
-
 .com_parking_widget_clear {
     clear: both;
 }
 
-.com_parking_widget_map_container {
-    position: relative; 
-    width: 370px;
-    height: 390px;
-}
-
-.com_parking_widget_pakring_map {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 370px;
-    height: 390px;
-}
 .com_parking_widget_block_icon {
     position: absolute;
     /*top: 10px;
     left: 10px;*/
 }
 
-.com_parking_widget_block_icon img {
-    width: 30px;
-    height: 30px;
-}
-
 .com_parking_widget_parking_dialog {
     position: absolute;
-    margin:auto;
-    background:white;
-    border-radius: 10px;    
+    margin: auto;
+    background: white;
+    border-radius: 10px;
     border: 2px solid gray;
     width: auto;
     min-height: 88px;
     min-width: 200px;
     z-index: 20;
     padding: 5px;
+    left:10%;
+    top:10%;
 }
 
-
-.com_parking_widget_parking_dialog ul{
+.com_parking_widget_parking_dialog ul {
     padding: 0;
     list-style-type: none;
 }
@@ -122,8 +165,9 @@
     border-radius: 10px;
     color: #333333;
     font-weight: bold;
-    padding:4px;
+    padding: 4px;
 }
+
 .com_parking_dialog_header a {
     text-decoration: none;
     float: right;
@@ -132,5 +176,9 @@
     right: 0.3em;
     top: 50%;
     width: 20px;
+}
 
+.com_parking_widget_block_icon img {
+    width: 30px;
+    height: 30px;
 }

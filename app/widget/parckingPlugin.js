@@ -13,6 +13,9 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
     $.fn.comParckingPlugin = function () {
       var _self = this;
 
+      /**
+       * Load remote css
+       */
       function loadCss() {
         var css_link = jQuery("<link>", {
           rel: "stylesheet",
@@ -22,6 +25,9 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
         css_link.appendTo('head');
       }
 
+      /**
+       * Load remote html
+       */
       function loadHtml(dataModel) {
         $.get(html_url, function (remoteHtml) {
           console.log("data html loaded");
@@ -36,6 +42,9 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
 
       }
 
+      /**
+       * Load data model
+       */
       function loadDataModel(callback) {
         $.ajax({
           url: data_jsonp_url,
@@ -52,6 +61,9 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
         });
       }
 
+      /**
+       * Load underscore the template
+       */
       function template_me(html, data) {
 
         var old_var = _.templateSettings.variable;
@@ -64,24 +76,45 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
         return parsedHtml;
       }
 
+      /**
+       * Parse the remote data
+       */
       function praseData(dataModel, html) {
-        /*<img src="<%= com_parking.vendor.map %>"></img> */
         var parsedHtml = template_me(html, dataModel);
         _self.html(parsedHtml);
         bindElements(dataModel);
 
+        var src = dataModel.vendor.map;
         var mapImage = new Image();
+
         $(mapImage).load(function () {
-          $('.com_parking_widget_pakring_map_container', _self).html(mapImage)
-            .addClass("com_parking_widget_pakring_map");
-
-          $('.com_parking_widget_pakring_blocks', _self).show();
-
-        }).attr('src', dataModel.vendor.map).error(function () {
-          alert("Error loading map image from: "+dataModel.vendor.map+" retry please");
+          mapImageLoaded(mapImage);
+        }).attr('src', src).error(function () {
+          mapImageLoadError(dataModel.vendor.map);
         });
       }
 
+      /**
+       * Image map loaded
+       */
+      function mapImageLoaded(mapImage) {
+        $('.com_parking_widget_pakring_map_container', _self).html(mapImage)
+          .addClass("com_parking_widget_pakring_map");
+
+        $('.com_parking_widget_pakring_blocks', _self).show();
+      }
+
+      /**
+       * Error loading image
+       */
+      function mapImageLoadError(link) {
+        alert("Error loading map image from: " + link + " retry please");
+
+      }
+
+      /**
+       * bind all plugin events
+       */
       function bindElements(dataModel) {
         $(".com_parking_widget_footer .com_parking_widget_showdetails").click(function () {
           toggleParkingDetail(dataModel);
@@ -94,19 +127,21 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
         });
       }
 
+      /**
+       * Close parking dialog
+       */
       function closeDialog() {
         $(".com_parking_widget_parking_dialog").hide();
       }
 
+      /**
+       * Show parking dialog
+       */
       function showParkingBlockInfo(parking, obj) {
         console.log("clicked on ", parking);
         var parsedHtml = template_me(dialogHtml, { selectedparking: parking, dictionary: dictionary });
         $(".com_parking_widget_parking_dialog").html(parsedHtml);
 
-        var top = obj.css("top");
-        var left = obj.css("left");
-        $(".com_parking_widget_parking_dialog").css("top", top);
-        $(".com_parking_widget_parking_dialog").css("left", left);
         $(".com_parking_widget_parking_dialog").show();
         $(".com_parking_dialog_header a").click(function () {
           closeDialog();
@@ -122,6 +157,9 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
         });
       }
 
+      /**
+       * Trigger event
+       */
       function triggerEvent(el, eventName, options) {
         var event;
         if (window.CustomEvent) {
@@ -133,6 +171,9 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
         el.dispatchEvent(event);
       }
 
+      /**
+       * Show hide parking div
+       */
       function toggleParkingDetail(dataModel) {
         $(".com_parking_widget_container").slideToggle("slow", function () {
           if ($(".com_parking_widget_container").is(":visible") == true) {
@@ -146,6 +187,9 @@ function __comParckingPlugin(jQuery, jSelector, window, document) {
         });
       }
 
+      /**
+       * init
+       */
       function initPlugin() {
         loadCss();
         loadDataModel(loadHtml);
