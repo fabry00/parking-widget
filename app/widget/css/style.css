@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .com_parking_widget {
     font-family: "Times New Roman", Times, serif;
     font-size: 14px;
@@ -121,25 +121,5 @@
     right: 0.3em;
     top: 50%;
     width: 20px;
-=======
-.com_parking_widget {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 14px;
-    color: #ABABAB;
-}
 
-.com_parking_widget span:first-child {
-    font-size: 18px;
-    color: brown;
-}
-
-.com_parking_widget_loader {
-    position: relative;
-	left: 0px;
-	top: 0px;
-	width: 100px;
-	height: 100px;
-	
-	background: url(http://localhost:8080/widget/assets/preloader.gif) center no-repeat #fff;
->>>>>>> 469d3db173dff89b3daaca7626fabb9991e8e09b
 }
