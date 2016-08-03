@@ -1,3 +1,14 @@
+@media screen and (min-width: 40.5em) {
+  .com_parking_widget_map_container {
+    width: 50%;
+    float: left;
+  }
+
+  .com_parking_widget_pakring_map {
+    width: 50%;
+    float: left;
+  }
+}
 
 .com_parking_widget {
     font-family: "Times New Roman", Times, serif;
