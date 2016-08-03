@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Parking widget</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <div>THE CLIENT HTML</div>
+
+  <div style="width:70%;left:0;top:0;margin:auto;">
+    <div id="com-parking-widget"></div>
+  </div>
+
+  <div>THE CLIENT HTML</div>
+
+  <script src="widget/com-parking-widget.js"></script>
+
+  <script type="text/javascript">
+
+
+    $(document).ready(function(){      
+
+      // Add an event listener.
+      $("#com-parking-widget").on('customChangeEvent',function(e){
+        alert("CLIENT CALLBACK --> Parking reserved: "+JSON.stringify(e.originalEvent.detail));
+      });
+      
+
+    });    
+        
+  </script>
+</body>
+</html>

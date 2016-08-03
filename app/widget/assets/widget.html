@@ -1,0 +1,53 @@
+<div class="com_parking_widget">
+    <div class="com_parking_widget_header">
+        <div class="com_parking_widget_header_title com_parking_widget_box">
+            <%= com_parking.dictionary.bookYourParking %>
+                <%= com_parking.vendor.departureAirport %>
+        </div>
+        <div class="com_parking_widget_header_show_details com_parking_widget_box_right">
+            <span><%= com_parking.vendor.name %></span>
+        </div>
+        <div class="com_parking_widget_clear"></div>
+    </div>
+    <div class="com_parking_widget_container">
+        <span style="display: block;"><%= com_parking.dictionary.featuresTitle %></span>
+        <div class=com_parking_widget_container_details>
+            <div class="com_parking_widget_map com_parking_widget_box">
+                <div class="com_parking_widget_map_container">
+                    <div class="com_parking_widget_pakring_map_container">
+                        <label><%= com_parking.dictionary.loadingMap %></label>
+                        <img src="http://localhost:8080/widget/assets/preloader.gif"></img>
+                    </div>
+                    <div class="com_parking_widget_pakring_blocks" style="display:none;">
+                        <% _.each(com_parking.parkings, function(parking){ %>
+                            <div class="com_parking_widget_block_icon" data-parking='<%= JSON.stringify(parking) %>' style="top:<%= parking.top%>px; left:<%= parking.left%>px;">
+                                <a href="#"><img src="http://localhost:8080/widget/assets/picon.png"></img></a>
+                            </div>
+                            <% }); %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="com_parking_widget_features com_parking_widget_box">
+                <ul>
+                    <% _.each(com_parking.vendor.features, function(feature){ %>
+                        <li>
+                            <%= feature %>
+                        </li>
+                        <% }); %>
+                </ul>
+            </div>
+        </div>
+        <div class="com_parking_widget_clear"></div>
+        <div class="com_parking_widget_parking_dialog" style="display:none;"></div>
+    </div>
+    <div class="com_parking_widget_footer">
+        <hr style="display:none;" />
+        <div class="com_parking_widget_box_right">
+            <a href="#" class="com_parking_widget_showdetails">
+                <%= com_parking.dictionary.showDetails %>
+            </a>
+        </div>
+        <div class="com_parking_widget_clear"></div>
+    </div>
+</div>
