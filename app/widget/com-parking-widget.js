@@ -1,8 +1,12 @@
-(function () {
+(function (window, document) {
+    "use strict";
 
-    // Localize jQuery variable
     var jQuery;
+    var _readyInterval;
 
+    /**
+     * General function to load a rempote script
+     */
     function loadScript(url, callback) {
         /* Load script from url and calls callback once it's loaded */
         var scriptTag = document.createElement('script');
@@ -23,7 +27,24 @@
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(scriptTag);
     }
 
-    /******** Called once jQuery has loaded ******/
+    /**
+     * Check jquery loaded and which version, if it not comply our requirements,
+     *  the right jquery version will be downloaded 
+     */
+    function checkAndLoadJquery() {
+        if (window.jQuery === undefined || window.jQuery.fn.jquery !== '2.2.4') {
+            loadScript("http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", scriptLoadHandler);
+        } else {
+            // The jQuery version on the window is the one we want to use
+            jQuery = window.jQuery;
+            // Start the main
+            main();
+        }
+    }
+
+    /**
+     * Called once jQuery has loaded 
+     */
     function scriptLoadHandler() {
         // Restore $ and window.jQuery to their previous values and store the
         // new jQuery in our local jQuery variable
@@ -32,45 +53,37 @@
         main();
     }
 
+    /**
+     * Load all the libs needed
+     */
+    function loadLibs() {
+        loadScript("https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js");
+    }
+
+    /**
+     * Check if the widget and jquery is ready,
+     * if yes download your plugin and start it 
+     */
     function widgetReady() {
         if (jQuery("#com-parking-widget")) {
             window.clearInterval(_readyInterval);
-
-            loadScript("http://localhost:8080/widget/parckingPlugin.js",function(){
+            loadLibs();
+            loadScript("http://localhost:8080/widget/parckingPlugin.js", function () {
                 console.log("loaded");
-                parckingPlugin(jQuery);
-            });
-            // Make stuff here
-            var css_link = jQuery("<link>", {
-                rel: "stylesheet",
-                type: "text/css",
-                href: "http://localhost:8080/widget/css/style.css"
-            });
-            css_link.appendTo('head');
-
-            // Load HTML
-            var json_url = "http://localhost:8080/widget/assets/model.json";
-            jQuery.getJSON(json_url, function (data) {
-                console.log(data);
-                jQuery('#com-parking-widget').html("This data comes from another server: " + data.html);
-            });
+                __comParckingPlugin(jQuery,'#com-parking-widget');               
+            });           
         }
     }
 
 
-    /******** Our main function ********/
+    /**
+     * Entry point of my widget
+     */
     function main() {
         _readyInterval = window.setInterval(widgetReady, 500);
     }
 
 
-    /******** Load jQuery if not present *********/
-    if (window.jQuery === undefined || window.jQuery.fn.jquery !== '2.2.4') {
-        loadScript("http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js",scriptLoadHandler);
-    } else {
-        // The jQuery version on the window is the one we want to use
-        jQuery = window.jQuery;
-        main();
-    }
-
-})();
+    // Load jQuery if not present
+    checkAndLoadJquery();
+}(window, document));
