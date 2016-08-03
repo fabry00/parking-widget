@@ -1,7 +1,17 @@
+<<<<<<< HEAD
+logs/*
+!.gitkeep
+node_modules/
+libs/
+bower_components/
+tmp
+.DS_Store
+=======
 logs/*
 !.gitkeep
 node_modules/
 bower_components/
 tmp
 .DS_Store
+>>>>>>> 469d3db173dff89b3daaca7626fabb9991e8e09b
 .idea
