@@ -87,7 +87,7 @@
     top: 10px;
     width: 100px;
     height: 100px;
-    background: url(http://localhost:8080/widget/assets/preloader.gif) center no-repeat #fff;
+    background: url(http://localhost:8081/img/preloader.gif) center no-repeat #fff;
 }
 
 .com_parking_widget_header {
@@ -126,7 +126,7 @@
 }
 
 .com_parking_widget_features ul {
-    list-style-image: url('http://localhost:8080/widget/assets/icon-check.png');
+    list-style-image: url('http://localhost:8081/img/icon-check.png');
 }
 
 .com_parking_widget_clear {
