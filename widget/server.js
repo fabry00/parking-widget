@@ -2,10 +2,11 @@ var express = require('express');
 var app = express();
 var cors = require('cors');
 
+//Enable coords
 app.use(cors());
-app.use(express.static('assets'));
+app.use(express.static('public'));
 
-app.get('/widget.html', function (req, res) {
+app.get('/html/widget.html', function (req, res) {
    res.sendFile( __dirname + "/" + "widget.html" );
 })
 

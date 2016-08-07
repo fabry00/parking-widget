@@ -68,7 +68,7 @@
         if (jQuery("#com-parking-widget")) {
             window.clearInterval(_readyInterval);
             loadLibs(function () {
-                loadScript("http://localhost:8080/widget/parckingPlugin.js", function () {
+                loadScript("http://localhost:8081/parckingPlugin.js", function () {
                     console.log("loaded");
                     __comParckingPlugin(jQuery, '#com-parking-widget', window, document);
                 });
