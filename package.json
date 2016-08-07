@@ -27,5 +27,8 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js"
+  },
+  "dependencies": {
+    "bower": "^1.7.9"
   }
 }
