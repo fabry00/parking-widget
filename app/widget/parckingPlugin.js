@@ -1,10 +1,10 @@
 function __comParckingPlugin(jQuery, jSelector, window, document) {
   "use strict";
   (function ($, jSelector, window, document) {
-    var baseAddress = "http://localhost:8080/widget/";
-    var data_jsonp_url = baseAddress + "assets/model_jsonp.js";
-    var html_url = baseAddress + "assets/widget.html";
-    var parking_dialoghtml_url = baseAddress + "assets/parking_dialog.html";
+    var baseAddress = "http://localhost:8081/";
+    var data_jsonp_url = baseAddress + "model_jsonp.js";
+    var html_url = baseAddress + "html/widget.html";
+    var parking_dialoghtml_url = baseAddress + "html/parking_dialog.html";
     var style_url = baseAddress + "css/style.css";
 
     var myData = { baseAddress: baseAddress };

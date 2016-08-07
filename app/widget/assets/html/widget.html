@@ -16,12 +16,12 @@
                 <div class="com_parking_widget_map_container">
                     <div class="com_parking_widget_pakring_map_container">
                         <label><%= com_parking.dictionary.loadingMap %></label>
-                        <img src="http://localhost:8080/widget/assets/preloader.gif"></img>
+                        <img src="http://localhost:8081/img/preloader.gif"></img>
                     </div>
                     <div class="com_parking_widget_pakring_blocks" style="display:none;">
                         <% _.each(com_parking.parkings, function(parking){ %>
                             <div class="com_parking_widget_block_icon" data-parking='<%= JSON.stringify(parking) %>' style="top:<%= parking.top%>px; left:<%= parking.left%>px;">
-                                <a href="#"><img src="http://localhost:8080/widget/assets/picon.png"></img></a>
+                                <a href="#"><img src="http://localhost:8081/img/picon.png"></img></a>
                             </div>
                             <% }); %>
                     </div>
